@@ -32,6 +32,9 @@ class Person(BaseModel):
 # -------------------------
 # Predict Endpoint
 # -------------------------
+@app.get('/')
+def su():
+    return{'dict':'done'}
 @app.post("/predict")
 def predict(data: Person):
 
@@ -48,3 +51,4 @@ def predict(data: Person):
         "probability_<=50K": round(float(proba[0]), 3),
         "probability_>50K": round(float(proba[1]), 3)
     }
+
